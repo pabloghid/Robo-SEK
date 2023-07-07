@@ -1,4 +1,3 @@
-#!/usr/bin/env pybricks-micropython
 from pybricks.hubs import EV3Brick
 from pybricks.ev3devices import (Motor, TouchSensor, ColorSensor,
                                  InfraredSensor, UltrasonicSensor, GyroSensor)
@@ -16,20 +15,19 @@ ev3 = EV3Brick()
 # modulo = ModuloSwerve(Port.A, Port.B)
 motor = Motor(Port.A)
 
-sensor_s1 = ColorSensor(Port.S1)
-sensor_s2 = ColorSensor(Port.S2)
-sensor_s3 = ColorSensor(Port.S3)
-sensor_s4 = ColorSensor(Port.S4)
+## sensor_s1 = ColorSensor(Port.S1)
+sensor_s2 = UltrasonicSensor(Port.s2)
 
+## girar motor até achar a cor
+while detecta_cor(sensor_s1) != Color.RED:
+    motor.run(90)
+    print(detecta_cor(sensor_s1))
+print(detecta_cor(sensor_s1))
 
-motor.track_target(180)
-time.sleep(1)
-print(motor.angle())
-motor.track_target(360)
-time.sleep(1)
-print(motor.angle())
-motor.track_target(180)
-time.sleep(1)
-print(motor.angle())
-
-ev3.speaker.beep()
+## sensor ultrasonico
+while True:
+    print(sensor_s2.distance())
+    if sensor_s2.distance() < 100:
+        print("distancia maenor que 100")
+        ev3.speaker.beep()
+        break
