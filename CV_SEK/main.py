@@ -6,8 +6,8 @@ from pybricks.parameters import Port, Stop, Direction, Button, Color
 from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
-from ModuloSwerve import ModuloSwerve
-from DetectorCor import detecta_cor
+from subsystems.swerve_module import SwerveModule
+from color_detection_utils import detecta_cor
 import time
 
 # Create your objects here.
