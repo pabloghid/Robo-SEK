@@ -13,11 +13,9 @@ import time
 # Create your objects here.
 ev3 = EV3Brick()
 
-# swerve1 = SwerveModule(Port.A, Port.B)
+swerve1 = SwerveModule(Port.A, Port.B)
 # swerve2 = SwerveModule(Port.C, Port.D)
 
-motor_garra = Motor(Port.D)
-
-motor_garra.run_angle(350, -720)
+swerve1.set_desired_state(90, 300)
 
 time.sleep(2)
